@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        img
+        이미지를 추가할 때 사용하는 태그
+        속성으로 scr 필수 alt도 웹표준에 맞추려면 필수, height, width는 이미지의 너비와 높이를 조정 가능
+        src에는 절대경로와 상대경로를 이용하여 가져옴
+        상대 경로: 파일을 기준으로 이미지가 어디에 있는지 탐색해서 가져옴
+        절대 경로:서버의 최상위 폴더를 기준으로 이미지가 어디에 있는지 탐색해서 가져옴
+        서버의 최상위 경로는 open folder를 이용하여 열 때마다 달라질 수 있음
+     -->
+     <!-- 상대경로를 이용하는 방법 -->
+     <img src="../imgggg/3636_10174_4958.jpg" alt="고양이">
+     <!-- 절대경로를 이용하는 방법: /을 시작하면 최상위 폴더를 기준으로 탐색 -->
+     <img src="/imgggg/3636_10174_4958.jpg" alt="고양이" height="200">
+</body>
+</html>
