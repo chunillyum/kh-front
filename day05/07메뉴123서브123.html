@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .menu {
+        width: 150px; height: auto;
+        display: inline-block;
+        position: relative;
+        padding: 10px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+      
+      .menu:hover .sub-menu {
+        display: block;
+      }
+      
+      .sub-menu {
+        display: none;
+        width: 150px;
+        position: absolute;
+        top: 100%;
+        left: -1px;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        z-index: 999;
+      }
+      
+      .sub-menu-item {
+        margin-top: 5px;
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+      </style>
+      </head>
+      <body>
+        <ul>
+          <li class="menu">
+            메뉴 1
+            <div class="sub-menu">
+              <div class="sub-menu-item">서브메뉴 1</div>
+              <div class="sub-menu-item">서브메뉴 2</div>
+              <div class="sub-menu-item">서브메뉴 3</div>
+            </div>
+          </li>
+          <li class="menu">
+            메뉴 2
+            <div class="sub-menu">
+              <div class="sub-menu-item">서브메뉴 4</div>
+              <div class="sub-menu-item">서브메뉴 5</div>
+              <div class="sub-menu-item">서브메뉴 6</div>
+            </div>
+          </li>
+          <li class="menu">
+            메뉴 3
+            <div class="sub-menu">
+              <div class="sub-menu-item">서브메뉴 7</div>
+              <div class="sub-menu-item">서브메뉴 8</div>
+              <div class="sub-menu-item">서브메뉴 9</div>
+            </div>
+          </li>
+        </ul>
+      </body>
+      </html>

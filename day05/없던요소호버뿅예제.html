@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+          position: relative;
+          width: 150px;
+          height: 150px;
+          background-color: #84848451;
+          border-radius: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: visible;
+          margin: 0 auto;
+          font-size: 20px;
+        }
+        
+        
+        .box {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 10px;
+          height: 10px;
+          background-color: #cb8686;
+          border-radius: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #ffffff;
+          font-size: 24px;
+          transition: all 0.3s;
+          opacity: 0;
+          text-align: center;
+          font-size: 18px;
+        }
+        
+        .container:hover .box {
+          width: 80%;
+          height: 150%;
+          border-radius: 25px;
+          opacity: 1;
+        }
+        </style>
+        </head>
+        <body>
+          <div class="container">
+            menu
+            <div class="box">뿅<br>메뉴<br>입니다.</div>
+          </div>
+        </body>
+        </html>

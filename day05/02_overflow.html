@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px; height: 100px; border: 1px solid black;
+        }
+        .inner-box{
+            width: 500px; height: 50px; background-color: red;
+        }
+        .box1{
+            overflow: visible;
+        }
+        .box2{
+            overflow: hidden;
+        }
+        .box3{
+            overflow: scroll;
+        }
+        .box4{
+            overflow: auto;
+        }
+        .box3 .inner-box{
+            height: 500px; width: 200px;
+        }
+        .box4 .inner-box{
+            height: 500px; width: 200px;
+        }
+        /* overflow가 auto 또는 scroll로 설정해서 스크롤이 생겼을 때 스크롤바를 안 보이게 하는 css
+        크롬, 사파리, 오페라, 엣지에서 동작 */
+        .box3::-webkit-scrollbar,.box4::-webkit-scrollbar{display: none;}
+        .box3,.box4{
+            /* 인터넷 익스플로러 */
+            -ms-overflow-style: none;
+            /* 파이어폭스 */
+            scrollbar-width: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box box1">
+        <div class="inner-box"></div>
+    </div>
+    <div class="box box2">
+        <div class="inner-box"></div>
+    </div>
+    <div class="box box3">
+        <div class="inner-box"></div>
+    </div>
+    <div class="box box4">
+        <div class="inner-box"></div>
+    </div>
+</body>
+</html>
