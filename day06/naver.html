@@ -385,15 +385,46 @@
 						</ul>
 					</div>
 				</div>
-				<div class="box-newsstand-page">
+				<div class="box-newsstand-page page-container">
 					<div class="box-page">
-						<button class="btn-prev"></button>
-						<div class="box-title">스포츠 소식 더보기</div>
-						<button class="btn-next"></button>
+						<button class="btn-prev"><span class="blind">이전 버튼</span></button>
+						<div class="box-title float-left">
+							<span class="text-point">
+								<span>언론사</span>
+								<span class="text-more">더보기</span>
+							</span>
+							<span class="page-current">1</span><span class="page-max">/4</span>
+						</div>
+						<button class="btn-next"><span class="blind">다음 버튼</span></button>
 					</div>
-					<div class="box-btns">2</div>
+					<div class="box-btns">
+						<button class="btn-list" aria-checked="true">
+							<span class="blind">리스트형</span>
+						</button>
+						<button class="btn-thumb" >
+							<span class="blind">썸네일형</span>
+						</button>
+					</div>
 				</div>
 			</div>
+			<!-- 왼쪽 2번째 컨텐츠 끝 -->
+			<div class="box-shopping" id="box-left3">
+				<div class="box-shopping-body">1</div>
+				<div class="box-shopping-page page-container">
+					<div class="box-page">
+						<button class="btn-prev"><span class="blind">이전 버튼</span></button>
+						<div class="box-title float-left">
+							<span class="text-point">
+								<span>쇼핑아이템</span>
+								<span class="text-more">더보기</span>
+							</span>
+							<span class="page-current">1</span><span class="page-max">/18</span>
+						</div>
+						<button class="btn-next"><span class="blind">다음 버튼</span></button>
+					</div>
+				</div>
+			</div>
+			<!-- 왼쪽 3번재 컨텐츠 끝 -->
 		</div>
 		<!-- 컨텐츠 왼쪽 박스 끝 -->
 		<div class="box-right">
@@ -414,5 +445,18 @@
 	<!-- 컨텐츠 끝 -->
 	<footer></footer>
 	<!-- 푸터 끝 -->
+	<script>
+		//뉴스스탠드, 언론사편집, 엔터, 스포츠, 경제를 클릭하면 굵은 글씨가 되는 코드
+		const tabListButton = document.querySelectorAll('#box_left2 .tab-list [class^=btn-]');
+
+		tabListButton.forEach(item=>{
+			item.addEventListener('click',()=>{
+				tabListButton.forEach((item2)=>item2.setAttribute('aria-selected','false'));
+				item.setAttribute('aria-selected','true')
+			});	
+		})
+
+	</script>
+	
 </body>
 </html>
