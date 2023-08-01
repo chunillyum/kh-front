@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+        .error-message {
+          color: red;
+        }
+        .password-message {
+          color: black;
+        }
+      </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form id="signup-form" onsubmit="return validateForm()" method="post">
+      <div>
+        <label for="username">아이디:</label>
+        <input type="text" id="username" name="username" required>
+        <div class="error-message" id="username-error"></div>
+      </div>
+      <div>
+        <label for="password">패스워드:</label>
+        <input type="password" id="password" name="password" required onclick="displayPasswordMessage()">
+        <div class="error-message" id="password-error"></div>
+      </div>
+      <div>
+        <label for="confirm-password">패스워드 확인:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <div class="error-message" id="confirm-password-error"></div>
+      </div>
+      <div>
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error-message" id="email-error"></div>
+      </div>
+      <div>
+        <label for="address">주소:</label>
+        <input type="text" id="address" name="address" required>
+        <div class="error-message" id="address-error"></div>
+      </div>
+      <div>
+        <input type="submit" value="가입하기">
+      </div>
+    </form>
+  
+    <script>
+      function validateForm() {
+        const errorMessages = document.querySelectorAll('.error-message');
+        errorMessages.forEach((message) => (message.innerHTML = ''));
+  
+        
+        let isValid = true;
+  
+        const usernameInput = document.getElementById('username');
+        if (usernameInput.value === '') {
+          displayErrorMessage('username-error', '필수 입력 항목입니다.');
+          isValid = false;
+        }
+  
+        const passwordInput = document.getElementById('password');
+        if (passwordInput.value === '') {
+          displayErrorMessage('password-error', '필수 입력 항목입니다.');
+          isValid = false;
+        } else if (!isValidPassword(passwordInput.value)) {
+          displayErrorMessage('password-error', '영문자 대/소문자, 특수문자, 숫자를 포함하여 8~32자여야 합니다.');
+          isValid = false;
+        }
+  
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        if (confirmPasswordInput.value === '') {
+          displayErrorMessage('confirm-password-error', '필수 입력 항목입니다.');
+          isValid = false;
+        } else if (confirmPasswordInput.value !== passwordInput.value) {
+          displayErrorMessage('confirm-password-error', '패스워드가 일치하지 않습니다.');
+          isValid = false;
+        }
+  
+        const emailInput = document.getElementById('email');
+        if (emailInput.value === '') {
+          displayErrorMessage('email-error', '필수 입력 항목입니다.');
+          isValid = false;
+        } else if (!isValidEmail(emailInput.value)) {
+          displayErrorMessage('email-error', '유효한 이메일 주소를 입력해주세요.');
+          isValid = false;
+        }
+  
+        const addressInput = document.getElementById('address');
+        if (addressInput.value === '') {
+          displayErrorMessage('address-error', '필수 입력 항목입니다.');
+          isValid = false;
+        }
+  
+        return isValid;
+      }
+  
+      function displayErrorMessage(elementId, errorMessage) {
+        const errorElement = document.getElementById(elementId);
+        errorElement.innerHTML = errorMessage;
+      }
+  
+      function displayPasswordMessage() {
+        const passwordErrorElement = document.getElementById('password-error');
+        passwordErrorElement.innerHTML = '<span class="password-message">영문자 대/소문자, 특수문자, 숫자를 포함하여 8~32자여야 합니다.</span>';
+      }
+  
+      function isValidPassword(password) {
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/;
+        return passwordPattern.test(password);
+      }
+  
+      function isValidEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+      }
+    </script>
+  </body>
+</html>
